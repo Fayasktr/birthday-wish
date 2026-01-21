@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Safeena ✨</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;600&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app" class="app-container">
+        <!-- Intro Sequence (Advanced Cake) -->
+        <div id="intro-overlay" class="intro-overlay">
+            <div class="cake-container">
+                <div class="cake-plate"></div>
+                <div class="cake-layer layer-1"></div>
+                <div class="cake-layer layer-2"></div>
+                <div class="cake-layer layer-3"></div>
+                <div class="candles-group">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+                <div class="lollipops-container">
+                    <!-- Lollipops will fly in from sides -->
+                    <div class="lollipop lolly-1"></div>
+                    <div class="lollipop lolly-2"></div>
+                    <div class="lollipop lolly-3"></div>
+                    <div class="lollipop lolly-4"></div>
+                </div>
+            </div>
+            <div class="intro-text font-serif">A special surprise...</div>
+        </div>
+
+        <!-- Background Effects -->
+        <div class="background-effects">
+            <canvas id="particle-canvas" class="particle-canvas"></canvas>
+            <div class="grain-overlay"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="font-serif-italic">To the most special soul</h2>
+                <h1 id="animated-heading" class="font-handwriting">Happy Birthday, Safeena 🥳✨</h1>
+                <p>"May your day be filled with as much light and joy as you bring to everyone around you."</p>
+            </div>
+        </section>
+
+        <!-- Melodies Section -->
+        <section class="melodies reveal">
+            <h2 class="melodies-title font-serif">Melodies for You</h2>
+            <div class="melodies-grid">
+                <!-- Song cards (Placeholders) -->
+                <div class="song-card">
+                    <div class="album-art">🎵</div>
+                    <div class="song-info">
+                        <h3>Song One</h3>
+                        <p>Beautiful Lyrics</p>
+                    </div>
+                </div>
+                <div class="song-card">
+                    <div class="album-art">🎵</div>
+                    <div class="song-info">
+                        <h3>Song Two</h3>
+                        <p>Happy Vibes</p>
+                    </div>
+                </div>
+                <div class="song-card">
+                    <div class="album-art">🎵</div>
+                    <div class="song-info">
+                        <h3>Song Three</h3>
+                        <p>Sweet Memories</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Gallery -->
+        <section class="memories reveal">
+            <h2 class="melodies-title font-serif">Captured Moments</h2>
+            <div class="memories-grid">
+                <!-- 6 Image Spaces -->
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=1" alt="Memory 1" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Perfect Beginning</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=2" alt="Memory 2" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Shared Laughter</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=3" alt="Memory 3" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Beautiful Soul</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=4" alt="Memory 4" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Pure Joy</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=5" alt="Memory 5" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Quiet Moments</p>
+                    </div>
+                </div>
+                <div class="memory-item">
+                    <img src="https://picsum.photos/400/500?random=6" alt="Memory 6" class="memory-img">
+                    <div class="memory-overlay">
+                        <p class="font-serif-italic">Forever & Always</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Signature -->
+        <section class="final-wish reveal">
+            <h1 class="font-serif-italic">Have a wonderful<br>year ahead, Safeena.</h1>
+            <p style="margin-top: 40px; color: var(--primary-gold); letter-spacing: 2px;">WITH LOVE.</p>
+            <a href="/login" id="login-link" class="login-btn font-serif">Enter the App →</a>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
