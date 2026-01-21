@@ -235,37 +235,37 @@ function togglePlay(cardId, audioId) {
     if (!audio.dataset.hasListener) {
         audio.addEventListener('timeupdate', updateProgress);
         audio.addEventListener('ended', () => {
-             card.classList.remove('playing');
-             isPlaying = false;
+            card.classList.remove('playing');
+            isPlaying = false;
         });
         audio.dataset.hasListener = 'true';
     }
 }
 
 function updateProgress(e) {
-    const { duration, currentTime } = e.srcElement;
+    const { duration, currentTime } = e.target;
     const progressPercent = (currentTime / duration) * 100;
-    const card = e.srcElement.parentElement.parentElement; // Audio is in song-info, which is in song-card
+    const card = e.target.parentElement.parentElement; // Audio is in song-info, which is in song-card
     const progressBar = card.querySelector('.progress-bar');
     progressBar.style.width = `${progressPercent}%`;
-    
+
     // Update time info
     const currTimeEl = card.querySelector('.time-info span:first-child');
     const durTimeEl = card.querySelector('.time-info span:last-child');
-    
+
     currTimeEl.textContent = formatTime(currentTime);
-    if(duration) durTimeEl.textContent = formatTime(duration);
+    if (duration) durTimeEl.textContent = formatTime(duration);
 }
 
 function seek(e, audioId) {
     const audio = document.getElementById(audioId);
-    const width = e.target.clientWidth; 
+    const width = e.target.clientWidth;
     // e.target might be progress-bar or progress-container. We need container width.
     const container = e.target.classList.contains('progress-bar') ? e.target.parentElement : e.target;
-    
+
     const clickX = e.offsetX;
     const duration = audio.duration;
-    
+
     audio.currentTime = (clickX / container.clientWidth) * duration;
 }
 
