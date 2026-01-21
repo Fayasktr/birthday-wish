@@ -428,6 +428,63 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    /* Ensure absolute positioning works for children */
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1s ease;
+    animation: fadeInArrow 1s 4s forwards;
+    /* Delay to appear after other elements */
+}
+
+@keyframes fadeInArrow {
+    to {
+        opacity: 0.7;
+    }
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--primary-gold);
+    border-right: 2px solid var(--primary-gold);
+    transform: rotate(45deg);
+    margin: -5px;
+    animation: scrollDown 2s infinite;
+}
+
+.scroll-arrow:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.scroll-arrow:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes scrollDown {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
 }
 
 .hero-content {
@@ -569,8 +626,13 @@ section {
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .song-info {
@@ -627,7 +689,8 @@ section {
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
     border-left: 14px solid var(--bg-dark);
-    margin-left: 4px; /* Optical centering */
+    margin-left: 4px;
+    /* Optical centering */
     transition: all 0.2s ease;
 }
 
