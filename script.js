@@ -203,4 +203,76 @@ function initDynamicRedirect() {
 }
 
 // Call dynamic redirect setup
+// Audio Player Logic
+let currentAudio = null;
+let currentBtn = null;
+let isPlaying = false;
+
+function togglePlay(cardId, audioId) {
+    const audio = document.getElementById(audioId);
+    const card = document.getElementById(cardId);
+    const btn = card.querySelector('.play-btn');
+
+    if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.parentElement.parentElement.classList.remove('playing');
+        isPlaying = false;
+    }
+
+    if (audio.paused) {
+        audio.play();
+        card.classList.add('playing');
+        isPlaying = true;
+        currentAudio = audio;
+        currentBtn = btn;
+    } else {
+        audio.pause();
+        card.classList.remove('playing');
+        isPlaying = false;
+    }
+
+    // Attach update listeners if not already attached
+    if (!audio.dataset.hasListener) {
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', () => {
+             card.classList.remove('playing');
+             isPlaying = false;
+        });
+        audio.dataset.hasListener = 'true';
+    }
+}
+
+function updateProgress(e) {
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    const card = e.srcElement.parentElement.parentElement; // Audio is in song-info, which is in song-card
+    const progressBar = card.querySelector('.progress-bar');
+    progressBar.style.width = `${progressPercent}%`;
+    
+    // Update time info
+    const currTimeEl = card.querySelector('.time-info span:first-child');
+    const durTimeEl = card.querySelector('.time-info span:last-child');
+    
+    currTimeEl.textContent = formatTime(currentTime);
+    if(duration) durTimeEl.textContent = formatTime(duration);
+}
+
+function seek(e, audioId) {
+    const audio = document.getElementById(audioId);
+    const width = e.target.clientWidth; 
+    // e.target might be progress-bar or progress-container. We need container width.
+    const container = e.target.classList.contains('progress-bar') ? e.target.parentElement : e.target;
+    
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    
+    audio.currentTime = (clickX / container.clientWidth) * duration;
+}
+
+function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${min}:${sec < 10 ? '0' + sec : sec}`;
+}
+
 document.addEventListener('DOMContentLoaded', initDynamicRedirect);

@@ -504,42 +504,169 @@ section {
     /* Chrome/Safari */
 }
 
+/* Custom Audio Player Styling */
 .song-card {
-    min-width: 200px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
+    min-width: 280px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
     padding: 20px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.song-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .song-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--primary-gold);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.song-card:hover::before {
+    opacity: 1;
+}
+
+.album-art-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .album-art {
     width: 100%;
-    aspect-ratio: 1;
-    background: #222;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused;
+}
+
+.song-card.playing .album-art {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.song-info {
+    text-align: center;
+    width: 100%;
+    z-index: 2;
 }
 
 .song-info h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 5px;
+    color: var(--text-light);
+    font-weight: 600;
 }
 
 .song-info p {
     font-size: 0.8rem;
     color: var(--text-dim);
+    margin-bottom: 15px;
+}
+
+/* Custom Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(241, 196, 15, 0.6);
+}
+
+.play-icon {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 14px solid var(--bg-dark);
+    margin-left: 4px; /* Optical centering */
+    transition: all 0.2s ease;
+}
+
+.song-card.playing .play-icon {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-left: 4px solid var(--bg-dark);
+    border-right: 4px solid var(--bg-dark);
+    margin-left: 0;
+    background: transparent;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--primary-gold);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 5px;
 }
 
 /* Memories Gallery */

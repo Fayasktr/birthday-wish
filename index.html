@@ -50,7 +50,9 @@
             <div class="hero-content">
                 <h2 class="font-serif-italic">To the most special soul</h2>
                 <h1 id="animated-heading" class="font-handwriting">Happy Birthday, Safeena 🥳✨</h1>
-                <p>"May your day be filled with as much light and joy as you bring to everyone around you."</p>
+                <p style="margin-bottom: 40px;">"May your day be filled with as much light and joy as you bring to
+                    everyone around you."</p>
+                <p>I am created this for you specially... 💖</p>
             </div>
         </section>
 
@@ -59,25 +61,82 @@
             <h2 class="melodies-title font-serif">Melodies for You</h2>
             <div class="melodies-grid">
                 <!-- Song cards (Placeholders) -->
-                <div class="song-card">
-                    <div class="album-art">🎵</div>
+                <!-- Real Songs -->
+                <div class="song-card" id="song-1">
+                    <div class="album-art-wrapper">
+                        <img src="assets/images/aaradhike.jpg" alt="Aaradhike" class="album-art">
+                    </div>
                     <div class="song-info">
-                        <h3>Song One</h3>
-                        <p>Beautiful Lyrics</p>
+                        <h3>Aaradhike</h3>
+                        <p>Soubin Shahir</p>
+
+                        <audio id="audio-1" src="assets/music/aaradhike.mp3"></audio>
+
+                        <div class="player-controls">
+                            <button class="play-btn" onclick="togglePlay('song-1', 'audio-1')">
+                                <div class="play-icon"></div>
+                            </button>
+                        </div>
+
+                        <div class="progress-container" onclick="seek(event, 'audio-1')">
+                            <div class="progress-bar" id="progress-1"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="curr-time-1">0:00</span>
+                            <span id="dur-time-1">0:00</span>
+                        </div>
                     </div>
                 </div>
-                <div class="song-card">
-                    <div class="album-art">🎵</div>
+
+                <div class="song-card" id="song-2">
+                    <div class="album-art-wrapper">
+                        <img src="assets/images/darshana.jpg" alt="Darshana" class="album-art">
+                    </div>
                     <div class="song-info">
-                        <h3>Song Two</h3>
-                        <p>Happy Vibes</p>
+                        <h3>Darshana</h3>
+                        <p>Hridayam</p>
+
+                        <audio id="audio-2" src="assets/music/darshana.mp3"></audio>
+
+                        <div class="player-controls">
+                            <button class="play-btn" onclick="togglePlay('song-2', 'audio-2')">
+                                <div class="play-icon"></div>
+                            </button>
+                        </div>
+
+                        <div class="progress-container" onclick="seek(event, 'audio-2')">
+                            <div class="progress-bar" id="progress-2"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="curr-time-2">0:00</span>
+                            <span id="dur-time-2">0:00</span>
+                        </div>
                     </div>
                 </div>
-                <div class="song-card">
-                    <div class="album-art">🎵</div>
+
+                <div class="song-card" id="song-3">
+                    <div class="album-art-wrapper">
+                        <img src="assets/images/kaanan_thonnununde.jpg" alt="Kaanan Thonnununde" class="album-art">
+                    </div>
                     <div class="song-info">
-                        <h3>Song Three</h3>
-                        <p>Sweet Memories</p>
+                        <h3>Kaanan Thonnununde</h3>
+                        <p>Siddharth Menon</p>
+
+                        <audio id="audio-3" src="assets/music/kaanan_thonnununde.mp3"></audio>
+
+                        <div class="player-controls">
+                            <button class="play-btn" onclick="togglePlay('song-3', 'audio-3')">
+                                <div class="play-icon"></div>
+                            </button>
+                        </div>
+
+                        <div class="progress-container" onclick="seek(event, 'audio-3')">
+                            <div class="progress-bar" id="progress-3"></div>
+                        </div>
+                        <div class="time-info">
+                            <span id="curr-time-3">0:00</span>
+                            <span id="dur-time-3">0:00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -89,39 +148,39 @@
             <div class="memories-grid">
                 <!-- 6 Image Spaces -->
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=1" alt="Memory 1" class="memory-img">
+                    <img src="./files/1.jpeg" alt="Memory 1" class="memory-img">
                     <div class="memory-overlay">
-                        <p class="font-serif-italic">Perfect Beginning</p>
+                        <p class="font-serif-italic">The Beginning</p>
                     </div>
                 </div>
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=2" alt="Memory 2" class="memory-img">
+                    <img src="./files/2.jpeg" alt="Memory 2" class="memory-img">
                     <div class="memory-overlay">
                         <p class="font-serif-italic">Shared Laughter</p>
                     </div>
                 </div>
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=3" alt="Memory 3" class="memory-img">
+                    <img src="./files/3.jpeg" alt="Memory 3" class="memory-img">
                     <div class="memory-overlay">
-                        <p class="font-serif-italic">Beautiful Soul</p>
+                        <p class="font-serif-italic">The art</p>
                     </div>
                 </div>
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=4" alt="Memory 4" class="memory-img">
+                    <img src="./files/4.jpeg" alt="Memory 4" class="memory-img">
                     <div class="memory-overlay">
                         <p class="font-serif-italic">Pure Joy</p>
                     </div>
                 </div>
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=5" alt="Memory 5" class="memory-img">
+                    <img src="./files/5.jpeg" alt="Memory 5" class="memory-img">
                     <div class="memory-overlay">
                         <p class="font-serif-italic">Quiet Moments</p>
                     </div>
                 </div>
                 <div class="memory-item">
-                    <img src="https://picsum.photos/400/500?random=6" alt="Memory 6" class="memory-img">
+                    <img src="./files/6.jpeg" alt="Memory 6" class="memory-img">
                     <div class="memory-overlay">
-                        <p class="font-serif-italic">Forever & Always</p>
+                        <p class="font-serif-italic">The best</p>
                     </div>
                 </div>
             </div>
